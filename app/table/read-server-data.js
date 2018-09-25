@@ -50,7 +50,7 @@ function showTable() {
                     // 'action' buttons
                     read_data_html+="<td>";
                         // read one product button
-                        read_data_html+="<button class='btn btn-primary m-r-10px read-one-product-button'>";
+                        read_data_html+="<button class='btn btn-primary m-r-10px read-one-button'>";
                             read_data_html+="<span class='glyphicon glyphicon-eye-open'></span> Read";
                         read_data_html+="</button>";
             
