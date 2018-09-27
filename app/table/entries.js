@@ -1,26 +1,7 @@
-$(document).ready(function(){
-    
-    showTable();
-    
-});
-function showTable() {
+function readAllEntries(data, keywords) {
     //$.getJSON("http://localhost/api/table/read.php", function(data){
         var read_data_html="";
 
-        //Search button
-        read_data_html+="<form id='search-form' action='#' method='post'>";
-            read_data_html+="<div class='input-group pull-left w-30-pct'>";
- 
-                read_data_html+="<input type='text' name='keywords' class='form-control search-keywords' placeholder='Search...' />";
-        
-                read_data_html+="<span class='input-group-btn'>";
-                    read_data_html+="<button type='submit' class='btn btn-default' type='button'>";
-                        read_data_html+="<span class='glyphicon glyphicon-search'></span>";
-                    read_data_html+="</button>";
-                read_data_html+="</span>";
- 
-            read_data_html+="</div>";
-        read_data_html+="</form>";
 
         read_data_html+="<div id='create-row' class='btn btn-primary pull-right m-b-15px create-entry-button'>";
             read_data_html+="<span class='glyphicon glyphicon-plus'></span> Create Row";
@@ -61,16 +42,20 @@ function showTable() {
                     read_data_html+="<td>";
                         read_data_html+="<span>test data lmao</span>";
                     read_data_html+="</td>";
+
                     // 'action' buttons
                     read_data_html+="<td>";
+                        // read one button
                         read_data_html+="<button class='btn btn-primary m-r-10px read-one-button'>";
                             read_data_html+="<span class='glyphicon glyphicon-eye-open'></span> Read";
                         read_data_html+="</button>";
             
+                        // edit button
                         read_data_html+="<button class='btn btn-info m-r-10px update-button'>";
                             read_data_html+="<span class='glyphicon glyphicon-edit'></span> Edit";
                         read_data_html+="</button>";
             
+                        // delete button
                         read_data_html+="<button class='btn btn-danger delete-entry-button'>";
                             read_data_html+="<span class='glyphicon glyphicon-remove'></span> Delete";
                         read_data_html+="</button>";
@@ -82,7 +67,4 @@ function showTable() {
         // end table
         read_data_html+="</table>";
         $("#page-content").html(read_data_html);
-        changePageTitle("Phone Suppression Table");
-
-   // });
 }
