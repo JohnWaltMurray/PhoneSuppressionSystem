@@ -2,21 +2,23 @@
     class Database {
 
         private $host = "localhost";
-        private $db_name = "api_db";
-        private $username = "";
-        private $password = "";
+        private $db_name = "phone_suppression_system";
+        private $username = "George";
+        private $password = "dbpass123";
         public $connection;
 
         public function getConnection() {
+            global $connection;
+            $this->connection = $connection;
             try{
                 $this->connection = new PDO("mysql:host=".$this->host.";dbname=".$this->db_name, $this->username, $this->password);
-                $this->conn->exec("set names utf8");
+                //$this->conn->exec("set names utf8");
             }
             catch(PDOException $exception) {
                 echo "Connection error: ".$exception->getMessage();
             }
 
-            return $this->conn;
+            return $this->connection;
         }
     }
 ?>

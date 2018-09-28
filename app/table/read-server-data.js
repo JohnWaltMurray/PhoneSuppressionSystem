@@ -4,7 +4,7 @@ $(document).ready(function(){
     
 });
 function showTable() {
-    //$.getJSON("http://localhost/api/table/read.php", function(data){
+    $.getJSON("http://localhost/PhoneSuppressionSystem/app/contact/read.php", function(data){
         var read_data_html="";
 
 
@@ -26,27 +26,17 @@ function showTable() {
             read_data_html+="</tr>";
             
             // rows here, need to know format of data
-            //$.each(data.records, function(key, val) {
+            $.each(data.records, function(key, val) {
     
                 // creating new table row per record
                 read_data_html+="<tr>";
                     
                     // DATA HERE
-                    read_data_html+="<td>";
-                        read_data_html+="<span>test data lmao</span>";
-                    read_data_html+="</td>";
-                    read_data_html+="<td>";
-                        read_data_html+="<span>test data lmao</span>";
-                    read_data_html+="</td>";
-                    read_data_html+="<td>";
-                        read_data_html+="<span>test data lmao</span>";
-                    read_data_html+="</td>";
-                    read_data_html+="<td>";
-                        read_data_html+="<span>test data lmao</span>";
-                    read_data_html+="</td>";
-                    read_data_html+="<td>";
-                        read_data_html+="<span>test data lmao</span>";
-                    read_data_html+="</td>";
+                    read_data_html+="<td>" + val.id + "</td>";
+                    read_data_html+="<td>" + val.phone_number + "</td>";
+                    read_data_html+="<td>" + val.f_name + "</td>";
+                    read_data_html+="<td>" + val.l_name + "</td>";
+                    read_data_html+="<td>" + val.number_type + "</td>";
                     // 'action' buttons
                     read_data_html+="<td>";
                         // read one product button
@@ -67,11 +57,11 @@ function showTable() {
             
                 read_data_html+="</tr>";
             
-            //});
+            });
         // end table
         read_data_html+="</table>";
         $("#page-content").html(read_data_html);
         changePageTitle("Phone Suppression Table");
 
-   // });
+    });
 }

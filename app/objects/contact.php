@@ -8,7 +8,7 @@
         public $phone_number;
         public $number_type;
 
-        public function construct($db) {
+        public function __construct($db) {
             $this->connection = $db;
         }
 
