@@ -1,15 +1,13 @@
 $(document).ready(function(){
  
-    // show html form when 'create product' button was clicked
-    $(document).on('click', '.create-product-button', function(){
+    $(document).on('click', '.create-entry-button', function(){
         var create_entry_html="";
  
-        // 'read products' button to show list of products
         create_entry_html+="<div id='go-back' class='btn btn-primary pull-right m-b-15px go-back-button'>";
             create_entry_html+="<span class='glyphicon glyphicon-list'></span> Go Back";
         create_entry_html+="</div>";
 
-        create_entry_html+="<form id='create-product-form' action='#' method='post' border='0'>";
+        create_entry_html+="<form id='create-entry-form' action='#' method='post' border='0'>";
             create_entry_html+="<table class='table table-hover table-responsive table-bordered'>";
         
                 // name field
@@ -54,12 +52,11 @@ $(document).ready(function(){
         changePageTitle("New Entry");
     });
  
-    // 'create product form' handle will be here
-    $(document).on('submit', '#create-product-form', function(){
+    $(document).on('submit', '#create-entry-form', function(){
         var form_data=JSON.stringify($(this).serializeObject());
 
         $.ajax({
-            url: "http://localhost/api/product/create.php",
+            url: "http://localhost/api/contact/create.php",
             type : "POST",
             contentType : 'application/json',
             data : form_data,
