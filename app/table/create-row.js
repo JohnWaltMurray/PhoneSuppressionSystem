@@ -56,7 +56,7 @@ $(document).ready(function(){
         var form_data=JSON.stringify($(this).serializeObject());
 
         $.ajax({
-            url: "http://localhost/api/contact/create.php",
+            url: "http://localhost/PhoneSuppressionSystem/app/api/contact/create.php",
             type : "POST",
             contentType : 'application/json',
             data : form_data,

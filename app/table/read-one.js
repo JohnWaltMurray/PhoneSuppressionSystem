@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     $(document).on('click', 'read-one-button', function(){
         var id = $(this).attr('data-id');
-        $.getJSON("http://localhost/api/contact/read_one.php?id=" + id, function(data){
+        $.getJSON("http://localhost/PhoneSuppressionSystem/app/api/contact/read_one.php?id=" + id, function(data){
             var read_one_html="";
  
             read_one_html+="<div id='read-entries' class='btn btn-primary pull-right m-b-15px go-back-button'>";
@@ -18,22 +18,22 @@ $(document).ready(function(){
 
             read_one_html+="<tr>";
                 read_one_html+="<td>Phone Number</td>";
-                read_one_html+="<td>" + data.number + "</td>";
+                read_one_html+="<td>" + data.phone_number + "</td>";
             read_one_html+="</tr>";
         
             read_one_html+="<tr>";
                 read_one_html+="<td>First Name</td>";
-                read_one_html+="<td>" + data.fname + "</td>";
+                read_one_html+="<td>" + data.f_name + "</td>";
             read_one_html+="</tr>";
         
             read_one_html+="<tr>";
                 read_one_html+="<td>Last Name</td>";
-                read_one_html+="<td>" + data.lname + "</td>";
+                read_one_html+="<td>" + data.l_name + "</td>";
             read_one_html+="</tr>";
 
             read_one_html+="<tr>";
                 read_one_html+="<td>Last Name</td>";
-                read_one_html+="<td>" + data.vtype + "</td>";
+                read_one_html+="<td>" + data.number_type + "</td>";
             read_one_html+="</tr>";
         
         read_one_html+="</table>";

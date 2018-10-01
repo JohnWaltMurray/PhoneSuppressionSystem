@@ -9,7 +9,7 @@ $(document).ready(function(){
         var l_name = data.l_name;
         var vtype = data.type;
 
-        $.getJSON("http://localhost/api/contact/read.php?id=" + id, function(data){
+        $.getJSON("http://localhost/PhoneSuppressionSystem/app/api/contact/read.php?id=" + id, function(data){
             edit_entry_html+="<div id='go-back' class='btn btn-primary pull-right m-b-15px go-back-button'>";
                 edit_entry_html+="<span class='glyphicon glyphicon-list'></span> Go Back";
             edit_entry_html+="</div>";
@@ -61,7 +61,7 @@ $(document).ready(function(){
         var form_data=JSON.stringify($(this).serializeObject());
 
         $.ajax({
-            url: "http://localhost/api/contact/create.php",
+            url: "http://localhost/PhoneSuppressionSystem/app/api/contact/create.php",
             type : "POST",
             contentType : 'application/json',
             data : form_data,

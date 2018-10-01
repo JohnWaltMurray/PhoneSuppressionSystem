@@ -3,8 +3,8 @@
 
         private $host = "localhost";
         private $db_name = "phone_suppression_system";
-        private $username = "George";
-        private $password = "dbpass123";
+        private $username = "root";
+        private $password = "";
         public $connection;
 
         public function getConnection() {

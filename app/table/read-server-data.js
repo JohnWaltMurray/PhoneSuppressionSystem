@@ -4,7 +4,7 @@ $(document).ready(function(){
     
 });
 function showTable() {
-    $.getJSON("http://localhost/PhoneSuppressionSystem/app/contact/read.php", function(data){
+    $.getJSON("http://localhost/PhoneSuppressionSystem/app/api/contact/read.php", function(data){
         var read_data_html="";
 
         //Search button

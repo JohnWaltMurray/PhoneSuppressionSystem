@@ -4,7 +4,7 @@ $(document).ready(function() {
 
         var keywords = $(this).find(":input[name='keywords']").val();
 
-        $.getJSON("http://localhost/api/contact/search.php?s="+keywords, function(data){
+        $.getJSON("http://localhost/PhoneSuppressionSystem/app/api/contact/search.php?s="+keywords, function(data){
 
             readAllEntries(data, keywords);
 
