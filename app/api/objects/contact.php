@@ -51,7 +51,7 @@
 
             $this->id = htmlspecialchars(strip_tags($this->id));
 
-            $statement->bindParam(1, $this->id);
+            $statement->bindValue(1, $this->id);
 
             if ($statement->execute()) {
                 return true;

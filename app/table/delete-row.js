@@ -5,7 +5,7 @@ $(document).ready(function() {
         if(confirm("Are you sure you want to delete this entry? ID="+id)) {
             $.ajax({
                 url: "http://localhost/PhoneSuppressionSystem/app/api/contact/delete.php",
-                type: POST,
+                type: "POST",
                 dataType: 'json',
                 data: JSON.stringify({ id: id }),
                 success: function(result){
