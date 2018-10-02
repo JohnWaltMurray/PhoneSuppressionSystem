@@ -13,25 +13,25 @@ $(document).ready(function(){
                 // name field
                 create_entry_html+="<tr>";
                     create_entry_html+="<td>Phone Number</td>";
-                    create_entry_html+="<td><input type='number' min='10' name='phone' class='form-control' required /></td>";
+                    create_entry_html+="<td><input type='text' min='10' name='phone_number' class='form-control' required /></td>";
                 create_entry_html+="</tr>";
         
                 // price field
                 create_entry_html+="<tr>";
                     create_entry_html+="<td>First Name</td>";
-                    create_entry_html+="<td><input type='text' name='fname' class='form-control' required /></td>";
+                    create_entry_html+="<td><input type='text' name='f_name' class='form-control' required /></td>";
                 create_entry_html+="</tr>";
         
                 // description field
                 create_entry_html+="<tr>";
                     create_entry_html+="<td>Last Name</td>";
-                    create_entry_html+="<td><input type='text' name='lname' class='form-control' required /></td>";
+                    create_entry_html+="<td><input type='text' name='l_name' class='form-control' required /></td>";
                 create_entry_html+="</tr>";
         
                 // categories 'select' field
                 create_entry_html+="<tr>";
                     create_entry_html+="<td>Voicemail Type</td>";
-                    create_entry_html+="<td><input type='text' name='vtype' class='form-control' required /></td>";
+                    create_entry_html+="<td><input type='text' name='number_type' class='form-control' required /></td>";
                 create_entry_html+="</tr>";
         
                 // button to submit form
@@ -52,13 +52,15 @@ $(document).ready(function(){
         changePageTitle("New Entry");
     });
  
-    $(document).on('submit', '#create-entry-form', function(){
+    $(document).on('submit', '#create-entry-form', function(e){
+        
         var form_data=JSON.stringify($(this).serializeObject());
 
         $.ajax({
             url: "http://localhost/PhoneSuppressionSystem/app/api/contact/create.php",
             type : "POST",
             contentType : 'application/json',
+            dataType: "json",
             data : form_data,
             success : function(result) {
                 showTable();

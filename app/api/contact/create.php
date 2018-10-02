@@ -13,14 +13,14 @@ $db = $database->getConnection();
 
 $contact = new Contact($db);
 
-$data = json_decode(file_get_contents(""));
+$data = json_decode(file_get_contents("php://input"));
 
 $contact->f_name = $data->f_name;
 $contact->l_name = $data->l_name;
 $contact->phone_number = $data->phone_number;
 $contact->number_type = $data->number_type;
 
-if ($product->create()) {
+if ($contact->create()) {
     echo '{';
             echo '"message": "Contact was created."';
     echo '}';
