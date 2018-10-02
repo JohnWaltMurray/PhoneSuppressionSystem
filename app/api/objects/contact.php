@@ -81,4 +81,21 @@
 
             return false;
         }
+
+        function read_one() {
+            $query = "SELECT id, f_name, l_name, phone_number, number_type FROM ".$this->table_name." WHERE id=?";
+
+            $statement = $this->connection->prepare($query);
+
+            $statement = bindValue(1, $this->id);
+
+            $statement->execute();
+
+            $row = $statement->fetch(PDO::FETCH_ASSOC);
+            $this->f_name = $row['f_name'];
+            $this->l_name = $row['l_name'];
+            $this->phone_number = $row['phone_number'];
+            $this->number_type = $row['number_type'];
+        }
     }
+?>
