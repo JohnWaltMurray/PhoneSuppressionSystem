@@ -61,7 +61,7 @@
         }
 
         function update() {
-            $query = "UPDATE ".$this->table_name." SET f_name=:f_name, l_name=:l_name, phone_number=:phone_number, number_type=:number_type WHERE id=:id";
+            $query = "UPDATE ".$this->table_name." SET f_name= :f_name, l_name= :l_name, phone_number= :phone_number, number_type= :number_type WHERE id= :id";
 
             $statement = $this->connection->prepare($query);
 
@@ -74,6 +74,7 @@
             $statement->bindParam(":l_name", $this->l_name);
             $statement->bindParam(":phone_number", $this->phone_number);
             $statement->bindParam(":number_type", $this->number_type);
+            $statement->bindParam(":id", $this->id);
 
             if ($statement->execute()) {
                 return true;
@@ -82,12 +83,12 @@
             return false;
         }
 
-        function read_one() {
+        function readOne() {
             $query = "SELECT id, f_name, l_name, phone_number, number_type FROM ".$this->table_name." WHERE id=?";
 
             $statement = $this->connection->prepare($query);
 
-            $statement = bindValue(1, $this->id);
+            $statement->bindValue(1, $this->id);
 
             $statement->execute();
 

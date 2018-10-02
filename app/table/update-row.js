@@ -3,21 +3,23 @@ $(document).ready(function(){
     $(document).on('click', '.update-button', function(){
         
         var id = $(this).attr("data-id");
-
+        //console.error("we're getting here");
+        
         
 
         $.getJSON("http://localhost/PhoneSuppressionSystem/app/api/contact/read_one.php?id=" + id, function(data){
+            
+        console.error("we're getting here");
+            var edit_entry_html="";
             var phone_number = data.phone_number;
             var f_name = data.f_name;
             var l_name = data.l_name;
             var number_type = data.number_type;
-
-            var edit_entry_html="";
+            
             
             edit_entry_html+="<div id='go-back' class='btn btn-primary pull-right m-b-15px go-back-button'>";
                 edit_entry_html+="<span class='glyphicon glyphicon-list'></span> Go Back";
             edit_entry_html+="</div>";
-
             edit_entry_html+="<form id='edit-entry-form' action='#' method='post' border='0'>";
                 edit_entry_html+="<table class='table table-hover table-responsive table-bordered'>";
             
@@ -33,12 +35,12 @@ $(document).ready(function(){
             
                     edit_entry_html+="<tr>";
                         edit_entry_html+="<td>Last Name</td>";
-                        edit_entry_html+="<td><input value=\""+l_name+"\"type='text' name='l_name' class='form-control' required /></td>";
+                        edit_entry_html+="<td><input value=\""+l_name+"\" type='text' name='l_name' class='form-control' required /></td>";
                     edit_entry_html+="</tr>";
             
                     edit_entry_html+="<tr>";
                         edit_entry_html+="<td>Voicemail Type</td>";
-                        edit_entry_html+="<td><input value=\""+number_type+"\"type='text' name='number_type' class='form-control' required /></td>";
+                        edit_entry_html+="<td><input value=\""+number_type+"\" type='text' name='number_type' class='form-control' required /></td>";
                     edit_entry_html+="</tr>";
             
 
@@ -63,7 +65,7 @@ $(document).ready(function(){
 
     $(document).on('submit', '#edit-entry-form', function(){
         var form_data=JSON.stringify($(this).serializeObject());
-
+        console.error(form_data);
         $.ajax({
             url: "http://localhost/PhoneSuppressionSystem/app/api/contact/update.php",
             type : "POST",
@@ -73,6 +75,7 @@ $(document).ready(function(){
                 showTable();
             },
             error: function(xhr, resp, text) {
+                console.warn(xhr.responseText);
                 console.log(xhr, resp, text);
             }
         });
