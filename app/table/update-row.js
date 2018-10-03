@@ -11,6 +11,7 @@ $(document).ready(function(){
             
         console.error("we're getting here");
             var edit_entry_html="";
+            var id = data.id;
             var phone_number = data.phone_number;
             var f_name = data.f_name;
             var l_name = data.l_name;
@@ -22,10 +23,10 @@ $(document).ready(function(){
             edit_entry_html+="</div>";
             edit_entry_html+="<form id='edit-entry-form' action='#' method='post' border='0'>";
                 edit_entry_html+="<table class='table table-hover table-responsive table-bordered'>";
-            
+
                     edit_entry_html+="<tr>";
-                        edit_entry_html+="<td>Phone Number</td>";
-                        edit_entry_html+="<td><input value=\""+phone_number+"\" type='text' min='10' name='phone_number' class='form-control' required /></td>";
+                        edit_entry_html+="<td>ID</td>";
+                        edit_entry_html+="<td><input value=\""+id+"\" readonly='readonly' type='number' name='id' class='form-control' required /></td>";
                     edit_entry_html+="</tr>";
             
                     edit_entry_html+="<tr>";
@@ -36,6 +37,11 @@ $(document).ready(function(){
                     edit_entry_html+="<tr>";
                         edit_entry_html+="<td>Last Name</td>";
                         edit_entry_html+="<td><input value=\""+l_name+"\" type='text' name='l_name' class='form-control' required /></td>";
+                    edit_entry_html+="</tr>";
+
+                    edit_entry_html+="<tr>";
+                        edit_entry_html+="<td>Phone Number</td>";
+                        edit_entry_html+="<td><input value=\""+phone_number+"\" type='text' min='10' name='phone_number' class='form-control' required /></td>";
                     edit_entry_html+="</tr>";
             
                     edit_entry_html+="<tr>";
@@ -63,7 +69,8 @@ $(document).ready(function(){
     });
  
 
-    $(document).on('submit', '#edit-entry-form', function(){
+    $(document).on('submit', '#edit-entry-form', function(e){
+        e.preventDefault();
         var form_data=JSON.stringify($(this).serializeObject());
         console.error(form_data);
         $.ajax({

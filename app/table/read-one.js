@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $(document).on('click', 'read-one-button', function(){
+    $(document).on('click', '.read-one-button', function(){
         var id = $(this).attr('data-id');
         $.getJSON("http://localhost/PhoneSuppressionSystem/app/api/contact/read_one.php?id=" + id, function(data){
             var read_one_html="";
